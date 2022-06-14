@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   svg {
     width: 200px;
     margin-bottom: 5px;
+
+    .my-fav {
+      fill: ${p => p.theme.grey};
+    }
   }
 
   ${media.sm`
