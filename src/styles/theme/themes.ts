@@ -15,6 +15,8 @@ const lightTheme = {
   grey: '#373737',
   grey1: '#EFEFEF',
 
+  red1: '#7c0b12',
+
   strokeColor: '#111827',
   overlay: 'rgba(16, 10, 53, 0.8)',
 
@@ -39,6 +41,8 @@ const darkTheme: Theme = {
 
   grey: '#EFEFEF',
   grey1: '#EFEFEF',
+
+  red1: '#7c0b12',
 
   strokeColor: '#ffffff',
   overlay: 'rgba(16, 10, 53, 0.8)',
