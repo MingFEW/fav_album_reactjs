@@ -11,7 +11,7 @@ export const CardItemList: React.FC = () => {
 
   return (
     <Wrapper>
-      <div className="p-4 flex flex-row gap-6 items-start justify-start">
+      <div className="p-4 flex flex-col sm:flex-row gap-6 items-start justify-start">
         <ThumbnailWrapper>
           <img
             src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/4/7/c/947c4e9b9220c3d158fdf9ec40437e91.jpg"
