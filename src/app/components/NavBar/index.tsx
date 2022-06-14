@@ -10,7 +10,7 @@ import { PageWrapper } from '../PageWrapper'
 
 export const NavBar: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper className="nav-bar">
       <PageWrapper>
         <Logo />
         <Nav />

@@ -6,8 +6,10 @@ import { messages } from '../messages'
 import { media } from 'styles/media'
 import { Album } from 'types/AlbumsState'
 
+// Context
 import { useBestAlbums } from 'contexts/BestAlbumsContext/hooks'
 
+// Components
 import { Flex } from 'app/components/Box'
 import { Text } from 'app/components/Text'
 import { GridItem } from './CardItem/GridItem'

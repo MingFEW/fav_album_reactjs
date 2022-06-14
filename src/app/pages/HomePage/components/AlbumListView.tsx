@@ -32,6 +32,13 @@ export const AlbumListView: React.FC = () => {
 
   const [page, setPage] = useState<number>(1)
 
+  const scrollToTop = useCallback(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    })
+  }, [])
+
   const onPageChange = useCallback(
     (page: number, pageSize: number) => {
       setPage(page)
@@ -39,8 +46,9 @@ export const AlbumListView: React.FC = () => {
         ...params,
         _start: page * pageSize - params._limit,
       })
+      scrollToTop()
     },
-    [params, setParams],
+    [params, setParams, scrollToTop],
   )
 
   return (
