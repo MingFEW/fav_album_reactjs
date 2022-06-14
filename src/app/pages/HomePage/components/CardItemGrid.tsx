@@ -11,11 +11,11 @@ export const CardItemGrid: React.FC = memo(() => {
       <ThumbnailWrapper>
         <img
           src="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-4-5af9c270adb750fdeb8f6a17fc9bfe54.jpg"
-          alt=""
+          alt="aaa"
         />
 
         <FavoriteWrap>
-          <HeartOutlineIcon />
+          {/* <HeartOutlineIcon /> */}
           {/* <HeartSolidIcon /> */}
         </FavoriteWrap>
       </ThumbnailWrapper>
@@ -26,6 +26,9 @@ export const CardItemGrid: React.FC = memo(() => {
         </Text>
         <Text className="mt-2" color="text1">
           John Deep, Albi
+        </Text>
+        <Text className="mt-2 del-item" color="#999999">
+          Delete
         </Text>
       </Box>
     </Wrapper>
@@ -38,6 +41,14 @@ const Wrapper = styled.div`
 
   &:hover img {
     transform: scale(1.1) translateZ(0);
+  }
+
+  .del-item {
+    cursor: pointer;
+    display: inline-block;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 
