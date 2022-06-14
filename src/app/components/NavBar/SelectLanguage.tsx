@@ -1,16 +1,37 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback } from 'react'
+import { useTranslation } from 'react-i18next'
 import styled from 'styled-components/macro'
+
 import { Button } from '../Button'
 import { Text } from '../Text'
 
 export const SelectLanguage: React.FC = memo(() => {
+  const { i18n } = useTranslation()
+
+  const onChangeLanguage = useCallback(
+    (language: string) => {
+      i18n.changeLanguage(language)
+    },
+    [i18n],
+  )
+
   return (
     <Wrapper>
-      <LanguageButton selected>EN</LanguageButton>
+      <LanguageButton
+        selected={i18n.language === 'en'}
+        onClick={() => onChangeLanguage('en')}
+      >
+        EN
+      </LanguageButton>
       <Text className="mx-4" color="text2">
         /
       </Text>
-      <LanguageButton>VI</LanguageButton>
+      <LanguageButton
+        selected={i18n.language === 'vi'}
+        onClick={() => onChangeLanguage('vi')}
+      >
+        VI
+      </LanguageButton>
     </Wrapper>
   )
 })

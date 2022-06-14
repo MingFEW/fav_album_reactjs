@@ -1,8 +1,4 @@
 {
-  "routingFeature": {
-    "title": "Industry-standard Routing",
-    "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."
-  },
   "homePage": {
     "addNew": "+ ADD NEW",
     "selectSort": "Select sort...",
@@ -14,5 +10,12 @@
     "delete": "Delete",
     "theBestOfAlbum": "The Best",
     "viewMode": "View mode"
+  },
+  "notification": {
+    "success": "Success",
+    "notif": "Notification",
+    "error": "Error",
+    "addedToBestAlbum": "Added to best album",
+    "removedFromBestAlbum": "Removed from best album"
   }
 }

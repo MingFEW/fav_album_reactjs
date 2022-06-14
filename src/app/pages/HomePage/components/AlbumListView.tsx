@@ -6,6 +6,7 @@ import { PAGE_SIZE } from 'contants'
 // Context
 import { useViewMode } from 'contexts/ViewModeContext/hooks'
 import { useQueryParams } from 'contexts/QueryParamsContext/hooks'
+import { useBestAlbums } from 'contexts/BestAlbumsContext/hooks'
 
 // State
 import { useAlbums } from 'state/albums/hooks'
@@ -27,6 +28,7 @@ export const AlbumListView: React.FC = () => {
   const { params, setParams } = useQueryParams()
   const { viewMode } = useViewMode()
   const { isLoading, albums, albumsCount } = useAlbums(params)
+  const { toggleBestAlbum } = useBestAlbums()
 
   const [page, setPage] = useState<number>(1)
 
@@ -56,7 +58,11 @@ export const AlbumListView: React.FC = () => {
               <CardItemPlaceholder key={k} />
             ))
           : albums.map((album: Album, index: number) => (
-              <CardItem data={album} key={index} />
+              <CardItem
+                data={album}
+                key={index}
+                onFavoriteToggle={() => toggleBestAlbum(album)}
+              />
             ))}
       </div>
 
@@ -79,11 +85,13 @@ const CardItemPlaceholder: React.FC = memo(() => {
   return viewMode === 'grid' ? <GridItemPlaceholder /> : <ListItemPlaceholder />
 })
 
-const CardItem: React.FC<{ data: Album }> = memo(({ data }) => {
-  const { viewMode } = useViewMode()
-  return viewMode === 'grid' ? (
-    <GridItem data={data} />
-  ) : (
-    <ListItem data={data} />
-  )
-})
+const CardItem: React.FC<{ data: Album; onFavoriteToggle: () => void }> = memo(
+  ({ data, onFavoriteToggle }) => {
+    const { viewMode } = useViewMode()
+    return viewMode === 'grid' ? (
+      <GridItem data={data} onFavoriteToggle={onFavoriteToggle} />
+    ) : (
+      <ListItem data={data} onFavoriteToggle={onFavoriteToggle} />
+    )
+  },
+)

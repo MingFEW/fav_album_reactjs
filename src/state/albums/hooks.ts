@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useInjectReducer } from 'redux-injectors'
 
+import { useToast } from 'contexts/ToastsContext/hooks'
+
 import { Params, RootState } from 'types'
 import { AlbumsState } from 'types/AlbumsState'
 import { fetchAlbums } from './actions'
@@ -24,20 +26,18 @@ export const useAlbums = (
     RootState,
     AlbumsState
   >(state => state.albums)
-  //   const { toastError } = useToast()
+  const { toastError } = useToast()
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(fetchAlbums(params))
   }, [dispatch, params])
 
-  //   useEffect(() => {
-  //     if (error) {
-  //       toastError('Blocks Error', error?.message)
-  //     }
-  //   }, [error])
+  useEffect(() => {
+    if (error) {
+      toastError('Error', error?.message)
+    }
+  }, [error, toastError])
 
   return { isLoading, albums, albumsCount }
 }
-
-export const useAlbumActionHandlers = () => {}

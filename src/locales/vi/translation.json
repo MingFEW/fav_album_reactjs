@@ -1,8 +1,4 @@
 {
-  "routingFeature": {
-    "title": "Industry-standard Routing",
-    "description": "It's natural to want to add pages (e.g. `/about`) to your application, and routing makes this possible."
-  },
   "homePage": {
     "addNew": "+ THÊM MỚI",
     "selectSort": "Chọn...",
@@ -12,7 +8,14 @@
     "sortDirAsc": "Cũ đến mới",
     "sortDirDesc": "Mới đến cũ",
     "delete": "Xóa",
-    "theBestOfAlbum": "Cực Hay",
+    "theBestOfAlbum": "Hay nhất",
     "viewMode": "Xem"
+  },
+  "notification": {
+    "success": "Thành công",
+    "notif": "Thông báo",
+    "error": "Lỗi",
+    "addedToBestAlbum": "Đã thêm vào album hay nhất",
+    "removedFromBestAlbum": "Đã xoá khỏi album hay nhất"
   }
 }

@@ -18,7 +18,12 @@ import 'styles/css/tailwindcss.css'
 import 'react-loading-skeleton/dist/skeleton.css'
 
 import { App } from 'app'
+
+// Context
 import { ViewModeProvider } from 'contexts/ViewModeContext'
+import { QueryParamsProvider } from 'contexts/QueryParamsContext'
+import { ToastsProvider } from 'contexts/ToastsContext/Provider'
+import { BestAlbumsProvider } from 'contexts/BestAlbumsContext'
 
 import { HelmetProvider } from 'react-helmet-async'
 
@@ -30,7 +35,6 @@ import reportWebVitals from 'reportWebVitals'
 
 // Initialize languages
 import './locales/i18n'
-import { QueryParamsProvider } from 'contexts/QueryParamsContext'
 
 const store = configureAppStore()
 const MOUNT_NODE = document.getElementById('root') as HTMLElement
@@ -40,11 +44,15 @@ ReactDOM.render(
     <ThemeProvider>
       <HelmetProvider>
         <React.StrictMode>
-          <ViewModeProvider>
-            <QueryParamsProvider>
-              <App />
-            </QueryParamsProvider>
-          </ViewModeProvider>
+          <ToastsProvider>
+            <ViewModeProvider>
+              <QueryParamsProvider>
+                <BestAlbumsProvider>
+                  <App />
+                </BestAlbumsProvider>
+              </QueryParamsProvider>
+            </ViewModeProvider>
+          </ToastsProvider>
         </React.StrictMode>
       </HelmetProvider>
     </ThemeProvider>

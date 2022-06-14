@@ -8,11 +8,6 @@ import { translations } from 'locales/translations'
 import { _t } from 'utils/messages'
 
 export const messages = {
-  routingTitle: () =>
-    _t(
-      translations.routingFeature.title,
-      'Industry-standard Routing', // you can set the default value when extracting
-    ),
   addNew: () => _t(translations.homePage.addNew, '+ ADD ALBUM'),
   selectSort: () => _t(translations.homePage.selectSort),
   sortById: () => _t(translations.homePage.sortById),
