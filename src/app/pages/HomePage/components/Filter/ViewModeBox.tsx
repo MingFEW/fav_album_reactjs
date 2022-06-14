@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
+import ReactTooltip from 'react-tooltip'
 
 import { messages } from '../../messages'
 
@@ -24,12 +25,25 @@ export const ViewModeBox: React.FC = memo(() => {
       </Text>
 
       <Flex className="md:mr-10" alignItems="center">
-        <ButtonMode active={isGridMode} onClick={() => setViewMode('grid')}>
+        <ButtonMode
+          data-tip={t(messages.grid())}
+          data-for="gridTooltip"
+          active={isGridMode}
+          onClick={() => setViewMode('grid')}
+        >
           <GridIcon />
         </ButtonMode>
-        <ButtonMode active={!isGridMode} onClick={() => setViewMode('list')}>
+        <ButtonMode
+          data-tip={t(messages.list())}
+          data-for="listTooltip"
+          active={!isGridMode}
+          onClick={() => setViewMode('list')}
+        >
           <ListIcon />
         </ButtonMode>
+
+        <ReactTooltip id="gridTooltip" effect="solid" place="top" />
+        <ReactTooltip id="listTooltip" effect="solid" place="top" />
       </Flex>
     </Flex>
   )

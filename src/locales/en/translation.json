@@ -9,7 +9,11 @@
     "sortDirDesc": "New first",
     "delete": "Delete",
     "theBestOfAlbum": "The Best",
-    "viewMode": "View mode"
+    "viewMode": "View mode",
+    "grid": "Grid",
+    "list": "List",
+    "ascending": "Ascending",
+    "descending": "Descending"
   },
   "notification": {
     "success": "Success",

@@ -9,7 +9,11 @@
     "sortDirDesc": "Mới đến cũ",
     "delete": "Xóa",
     "theBestOfAlbum": "Hay nhất",
-    "viewMode": "Xem"
+    "viewMode": "Xem",
+    "grid": "Lưới",
+    "list": "Danh sách",
+    "ascending": "Tăng dần",
+    "descending": "Giảm dần"
   },
   "notification": {
     "success": "Thành công",

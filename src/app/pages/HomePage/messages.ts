@@ -18,4 +18,8 @@ export const messages = {
   delete: () => _t(translations.homePage.delete),
   theBestOfAlbum: () => _t(translations.homePage.theBestOfAlbum),
   viewMode: () => _t(translations.homePage.viewMode),
+  grid: () => _t(translations.homePage.grid),
+  list: () => _t(translations.homePage.list),
+  ascending: () => _t(translations.homePage.ascending),
+  descending: () => _t(translations.homePage.descending),
 }
