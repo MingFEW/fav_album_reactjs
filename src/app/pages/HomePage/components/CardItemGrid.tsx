@@ -36,8 +36,8 @@ export const CardItemGrid: React.FC = memo(() => {
 })
 
 const Wrapper = styled.div`
-  background: #ffffff;
-  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
+  background: ${p => p.theme.card};
+  box-shadow: 0px 1px 6px ${p => p.theme.shadow};
 
   &:hover img {
     transform: scale(1.1) translateZ(0);

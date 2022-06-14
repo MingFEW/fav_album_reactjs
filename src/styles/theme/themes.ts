@@ -15,10 +15,13 @@ const lightTheme = {
   grey: '#373737',
   grey1: '#EFEFEF',
 
+  card: '#ffffff',
+
   red1: '#7c0b12',
 
   strokeColor: '#111827',
   overlay: 'rgba(16, 10, 53, 0.8)',
+  shadow: 'rgba(0, 0, 0, 0.15)',
 
   gradient: 'linear-gradient(90deg, #BA6268 0.55%, #A8BBCD 100%)',
   toggleBackground: 'rgb(189, 194, 196)',
@@ -42,10 +45,13 @@ const darkTheme: Theme = {
   grey: '#EFEFEF',
   grey1: '#EFEFEF',
 
+  card: '#ffffff',
+
   red1: '#7c0b12',
 
   strokeColor: '#ffffff',
   overlay: 'rgba(16, 10, 53, 0.8)',
+  shadow: 'rgba(0, 0, 0, 0.15)',
 
   gradient: 'linear-gradient(90deg, #BA6268 0.55%, #A8BBCD 100%)',
 
