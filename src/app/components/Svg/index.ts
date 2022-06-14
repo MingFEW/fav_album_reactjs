@@ -6,6 +6,7 @@ export { default as ListIcon } from './icons/List'
 export { default as SortAscIcon } from './icons/SortAsc'
 export { default as HeartOutlineIcon } from './icons/HeartOutline'
 export { default as HeartSolidIcon } from './icons/HeartSolid'
+export { default as RemoveIcon } from './icons/RemoveIcon'
 
 export { default as Svg } from './Svg'
 export type { SvgProps } from './types'

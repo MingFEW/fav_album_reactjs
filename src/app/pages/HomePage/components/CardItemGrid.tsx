@@ -3,9 +3,17 @@ import styled from 'styled-components/macro'
 
 import { Box } from 'app/components/Box'
 import { Text } from 'app/components/Text'
-import { HeartOutlineIcon, HeartSolidIcon } from 'app/components/Svg'
+import {
+  HeartOutlineIcon,
+  HeartSolidIcon,
+  RemoveIcon,
+} from 'app/components/Svg'
+import { useTranslation } from 'react-i18next'
+import { messages } from '../messages'
 
 export const CardItemGrid: React.FC = memo(() => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <ThumbnailWrapper>
@@ -17,6 +25,7 @@ export const CardItemGrid: React.FC = memo(() => {
         <FavoriteWrap>
           {/* <HeartOutlineIcon /> */}
           {/* <HeartSolidIcon /> */}
+          <RemoveIcon />
         </FavoriteWrap>
       </ThumbnailWrapper>
 
@@ -27,8 +36,8 @@ export const CardItemGrid: React.FC = memo(() => {
         <Text className="mt-2" color="text1">
           John Deep, Albi
         </Text>
-        <Text className="mt-2 del-item" color="#999999">
-          Delete
+        <Text className="mt-2 del-item" color="red1">
+          {t(messages.delete())}
         </Text>
       </Box>
     </Wrapper>
@@ -38,10 +47,6 @@ export const CardItemGrid: React.FC = memo(() => {
 const Wrapper = styled.div`
   background: #ffffff;
   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.15);
-
-  &:hover img {
-    transform: scale(1.1) translateZ(0);
-  }
 
   .del-item {
     cursor: pointer;
@@ -61,7 +66,6 @@ const ThumbnailWrapper = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s;
   }
 `
 
@@ -79,7 +83,8 @@ const FavoriteWrap = styled.div`
   align-items: center;
   justify-content: center;
 
+  transition: box-shadow 0.25s linear;
   &:hover {
-    transform: scale3d(1.03, 1.03, 1.03);
+    box-shadow: 1px 7px 15px rgb(0 0 0 / 30%);
   }
 `

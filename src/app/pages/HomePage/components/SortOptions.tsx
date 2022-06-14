@@ -1,14 +1,17 @@
 import React from 'react'
 import Select from 'react-select'
 import styled from 'styled-components/macro'
-
-const options = [
-  { value: '1', label: 'Sort by Id' },
-  { value: '2', label: 'Sort by Name' },
-  { value: '3', label: 'Sort by Added Date' },
-]
+import { useTranslation } from 'react-i18next'
+import { messages } from '../messages'
 
 export const SortOptions: React.FC = () => {
+  const { t } = useTranslation()
+  const options = [
+    { value: '1', label: t(messages.sortById()) },
+    { value: '2', label: t(messages.sortByName()) },
+    { value: '3', label: t(messages.sortByDate()) },
+  ]
+
   return (
     <div className="w-full">
       <StyledSelect className="sort-options" options={options} />

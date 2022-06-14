@@ -9,6 +9,7 @@ export const Logo: React.FC = () => {
   return (
     <Wrapper>
       <AppLogo />
+      <div className="bar"></div>
     </Wrapper>
   )
 }
@@ -16,11 +17,21 @@ export const Logo: React.FC = () => {
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
-
+  position: relative;
+  .bar {
+    position: absolute;
+    height: 10px;
+    left: 0;
+    right: 0px;
+    bottom: 4px;
+    background-image: linear-gradient(90deg,#BA6268 0.55%,#A8BBCD 100%);
+    z-index: 0;
+  }
   svg {
     width: 200px;
     margin-bottom: 5px;
-
+    position: relative;
+    z-index: 1;
     .my-fav {
       fill: ${p => p.theme.grey};
     }

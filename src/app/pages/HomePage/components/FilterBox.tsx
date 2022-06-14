@@ -1,20 +1,24 @@
 import React, { memo } from 'react'
 import styled from 'styled-components/macro'
-
+import { useTranslation } from 'react-i18next'
 import { Button as ButtonBase } from 'app/components/Button'
 import { Box, Flex } from 'app/components/Box'
 import { Text } from 'app/components/Text'
 import { GridIcon, ListIcon, SortAscIcon } from 'app/components/Svg'
 import { SortOptions } from './SortOptions'
+import { messages } from '../messages'
 
 export const FilterBox: React.FC = memo(() => {
+  const { t } = useTranslation()
+
   return (
     <>
       <Wrapper>
-        <AddButton variant="primary">+ ADD ALBUM</AddButton>
-
+        <AddButton variant="primary">{t(messages.addNew())}</AddButton>
         <Flex className="flex-col md:flex-row" alignItems="center">
-          <Text className="hidden md:block mr-5">View mode</Text>
+          <Text className="hidden md:block mr-5" color="text2">
+            {t(messages.viewMode())}
+          </Text>
 
           <Flex className="md:mr-10" alignItems="center">
             <ButtonMode active>
@@ -58,7 +62,7 @@ const Wrapper = styled(Flex)`
 `
 
 const AddButton = styled(ButtonBase)`
-  color: ${p => p.theme.text2} !important;
+  color: white !important;
 `
 
 const SortButton = styled(ButtonBase)`
