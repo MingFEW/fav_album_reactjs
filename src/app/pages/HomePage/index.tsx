@@ -8,6 +8,9 @@ import { CardItemGrid } from './components/CardItemGrid'
 import { CardItemList } from './components/CardItemList'
 import { BestAlbumList } from './components/BestAlbumList'
 import { Footer } from 'app/components/Footer'
+import { Pagination } from 'app/components/Pagination'
+import { Flex } from 'app/components/Box'
+import { AddModal } from './components/AddModal'
 
 export const HomePage: React.FC = () => {
   return (
@@ -30,12 +33,17 @@ export const HomePage: React.FC = () => {
         {/* LIST VIEW */}
         <div className="flex flex-col gap-6">
           {Array.from({ length: 8 }, (v, k: number) => (
-            // <CardItemGrid key={k} />
             <CardItemList key={k} />
           ))}
         </div>
 
+        <Flex className="my-10" alignItems="center" justifyContent="center">
+          <Pagination current={1} pageSize={5} total={20} onChange={() => {}} />
+        </Flex>
+
         <BestAlbumList />
+
+        <AddModal />
       </PageWrapper>
       <Footer />
     </>
