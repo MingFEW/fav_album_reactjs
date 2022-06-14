@@ -7,7 +7,7 @@ import { FilterBox } from './components/FilterBox'
 import { CardItemGrid } from './components/CardItemGrid'
 import { CardItemList } from './components/CardItemList'
 import { BestAlbumList } from './components/BestAlbumList'
-
+import { Footer } from 'app/components/Footer'
 
 export const HomePage: React.FC = () => {
   return (
@@ -27,16 +27,17 @@ export const HomePage: React.FC = () => {
           ))}
         </div> */}
 
-         {/* LIST VIEW */}
+        {/* LIST VIEW */}
         <div className="flex flex-col gap-6">
           {Array.from({ length: 8 }, (v, k: number) => (
             // <CardItemGrid key={k} />
-            <CardItemList key={k}/>
+            <CardItemList key={k} />
           ))}
         </div>
 
         <BestAlbumList />
       </PageWrapper>
+      <Footer />
     </>
   )
 }
