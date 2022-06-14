@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 import { space, typography, layout } from 'styled-system'
+import getThemeValue from 'utils/getThemeValue'
+
 import { TextProps } from './types'
 
 const getFontSize = ({ fontSize, large }: TextProps) => {
@@ -7,7 +9,7 @@ const getFontSize = ({ fontSize, large }: TextProps) => {
 }
 
 const Text = styled.div<TextProps>`
-  color: ${p => p.color || p.theme.text};
+  color: ${({ theme, color }) => getThemeValue(`${color}`, color)(theme)};
   font-size: ${getFontSize};
   font-weight: ${({ bold }) => (bold ? 700 : 400)};
   line-height: 1.5;
