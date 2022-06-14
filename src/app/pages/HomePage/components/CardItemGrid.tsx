@@ -18,7 +18,7 @@ export const CardItemGrid: React.FC = memo(() => {
     <Wrapper>
       <ThumbnailWrapper>
         <img
-          src="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-4-5af9c270adb750fdeb8f6a17fc9bfe54.jpg"
+          src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/4/7/c/947c4e9b9220c3d158fdf9ec40437e91.jpg"
           alt="aaa"
         />
 
@@ -59,7 +59,6 @@ const Wrapper = styled.div`
 
 const ThumbnailWrapper = styled.div`
   position: relative;
-  height: 300px;
   overflow: hidden;
 
   img {
