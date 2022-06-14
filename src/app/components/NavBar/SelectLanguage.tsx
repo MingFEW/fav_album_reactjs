@@ -7,7 +7,9 @@ export const SelectLanguage: React.FC = memo(() => {
   return (
     <Wrapper>
       <LanguageButton selected>EN</LanguageButton>
-      <Text className="mx-4">/</Text>
+      <Text className="mx-4" color="text">
+        /
+      </Text>
       <LanguageButton>VI</LanguageButton>
     </Wrapper>
   )
