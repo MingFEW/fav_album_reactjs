@@ -1,8 +1,8 @@
 import React from 'react'
 import Skeleton from 'react-loading-skeleton'
 
-import { Wrapper } from './GridItem'
 import { Box } from 'app/components/Box'
+import { Wrapper } from './styled'
 
 export const GridItemPlaceholder: React.FC = () => {
   return (

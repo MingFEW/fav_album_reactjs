@@ -18,7 +18,7 @@ export const SelectLanguage: React.FC = memo(() => {
   return (
     <Wrapper>
       <LanguageButton
-        selected={i18n.language === 'en'}
+        selected={i18n.language === 'en' || i18n.language === 'en-US'}
         onClick={() => onChangeLanguage('en')}
       >
         EN
