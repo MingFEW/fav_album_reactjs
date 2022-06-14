@@ -36,6 +36,7 @@ export const CardItemGrid: React.FC = memo(() => {
         <Text className="mt-2" color="text1">
           John Deep, Albi
         </Text>
+        {/* No Delete button if it's the best */}
         <Text className="mt-2 del-item" color="red1">
           {t(messages.delete())}
         </Text>
