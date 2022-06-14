@@ -1,12 +1,15 @@
 import React, { memo } from 'react'
 import styled from 'styled-components/macro'
 import { useTranslation } from 'react-i18next'
+
+import { messages } from '../../messages'
+
+// Components
 import { Button as ButtonBase } from 'app/components/Button'
 import { Box, Flex } from 'app/components/Box'
-import { Text } from 'app/components/Text'
-import { GridIcon, ListIcon, SortAscIcon } from 'app/components/Svg'
 import { SortOptions } from './SortOptions'
-import { messages } from '../messages'
+import { ViewModeBox } from './ViewModeBox'
+import { OrderButton } from './OrderButton'
 
 export const FilterBox: React.FC = memo(() => {
   const { t } = useTranslation()
@@ -16,27 +19,13 @@ export const FilterBox: React.FC = memo(() => {
       <Wrapper>
         <AddButton variant="primary">{t(messages.addNew())}</AddButton>
         <Flex className="flex-col md:flex-row" alignItems="center">
-          <Text className="hidden md:block mr-5" color="text2">
-            {t(messages.viewMode())}
-          </Text>
-
-          <Flex className="md:mr-10" alignItems="center">
-            <ButtonMode active>
-              <GridIcon />
-            </ButtonMode>
-            <ButtonMode>
-              <ListIcon />
-            </ButtonMode>
-          </Flex>
-
+          <ViewModeBox />
           {/* Style for desktop */}
           <Box className="hidden md:flex md:items-center">
             <div className="w-40 lg:w-52 xl:w-64 md:block mr-3">
               <SortOptions />
             </div>
-            <SortButton>
-              <SortAscIcon />
-            </SortButton>
+            <OrderButton />
           </Box>
         </Flex>
       </Wrapper>
@@ -46,9 +35,7 @@ export const FilterBox: React.FC = memo(() => {
         <div className="flex-1 mr-3">
           <SortOptions />
         </div>
-        <SortButton>
-          <SortAscIcon />
-        </SortButton>
+        <OrderButton />
       </Box>
     </>
   )
@@ -63,23 +50,4 @@ const Wrapper = styled(Flex)`
 
 const AddButton = styled(ButtonBase)`
   color: white !important;
-`
-
-const SortButton = styled(ButtonBase)`
-  padding: 10px !important;
-
-  svg path {
-    stroke: ${p => p.theme.strokeColor};
-  }
-`
-
-const ButtonMode = styled(ButtonBase)<{ active?: boolean }>`
-  border-radius: 0px;
-  padding: 10px !important;
-  background-color: ${({ active, theme }) =>
-    active ? theme.grey1 : 'transparent'};
-
-  svg path {
-    stroke: ${p => !p.active && p.theme.strokeColor};
-  }
 `

@@ -1,5 +1,5 @@
 import { ThemeState } from 'styles/theme/slice/types'
-// [IMPORT NEW CONTAINERSTATE ABOVE] < Needed for generating containers seamlessly
+import { AlbumsState } from './AlbumsState'
 
 /* 
   Because the redux-injectors injects your reducers asynchronously somewhere in your code
@@ -9,5 +9,6 @@ import { ThemeState } from 'styles/theme/slice/types'
 */
 export interface RootState {
   theme?: ThemeState
+  albums: AlbumsState
   // [INSERT NEW REDUCER KEY ABOVE] < Needed for generating containers seamlessly
 }

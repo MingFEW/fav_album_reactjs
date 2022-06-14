@@ -1,23 +1,31 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
+
+import { messages } from '../../messages'
+
+import { Album } from 'types/AlbumsState'
+
+import { getAssetPath } from 'utils/getAssetPath'
+
+// Components
 import { HeartOutlineIcon, HeartSolidIcon } from 'app/components/Svg'
 import { Box } from 'app/components/Box'
 import { Text } from 'app/components/Text'
-import { useTranslation } from 'react-i18next'
-import { messages } from '../messages'
 
-export const CardItemList: React.FC = () => {
+interface Props {
+  data: Album
+}
+
+export const ListItem: React.FC<Props> = ({ data }) => {
   const { t } = useTranslation()
+  const { image, title, singer, description } = data || {}
 
   return (
     <Wrapper>
-      <div className="p-4 flex flex-row gap-6 items-start justify-start">
+      <div className="p-4 flex flex-col sm:flex-row gap-6 items-start justify-start">
         <ThumbnailWrapper>
-          <img
-            src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/4/7/c/947c4e9b9220c3d158fdf9ec40437e91.jpg"
-            alt="aaa"
-          />
-
+          <img src={getAssetPath(image.url)} alt={image.alternativeText} />
           <FavoriteWrap>
             <HeartOutlineIcon />
             {/* <HeartSolidIcon /> */}
@@ -25,17 +33,13 @@ export const CardItemList: React.FC = () => {
         </ThumbnailWrapper>
         <Box className="content">
           <Text color="text1" bold>
-            New Music for Monday
+            {title}
           </Text>
           <Text className="mt-2" color="text1">
-            John Deep, Albi
+            {singer}
           </Text>
           <Text className="mt-2" color="text1">
-            It is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English.
+            {description}
           </Text>
           {/* No Delete button if it's the best */}
           <Text className="mt-2 del-item" color="red1">
@@ -60,7 +64,7 @@ const Wrapper = styled.div`
   }
 `
 
-const ThumbnailWrapper = styled.div`
+export const ThumbnailWrapper = styled.div`
   position: relative;
   overflow: hidden;
   width: 140px;

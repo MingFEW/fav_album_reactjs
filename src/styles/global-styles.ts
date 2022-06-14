@@ -9,6 +9,10 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1.5;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     padding-top: ${StyleConstants.NAV_BAR_HEIGHT};
@@ -60,5 +64,15 @@ export const GlobalStyle = createGlobalStyle`
     bottom: 0;
     background-color: ${p => p.theme.overlay};
     z-index: 3;
+  }
+
+  .react-loading-skeleton {
+    --base-color: ${p => p.theme.skeletonBase};
+    --highlight-color: ${p => p.theme.skeletonHighlight};
+    z-index: unset;
+  }
+
+  :where([aria-busy="true" i]) {
+    cursor: unset;
   }
 `

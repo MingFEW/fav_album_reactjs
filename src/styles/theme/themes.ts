@@ -18,6 +18,8 @@ const lightTheme = {
   gradient: 'linear-gradient(90deg, #BA6268 0.55%, #A8BBCD 100%)',
   toggleBackground: 'rgb(189, 194, 196)',
   toggleColor: 'rgb(255, 178, 55)',
+  skeletonBase: '#ebebeb',
+  skeletonHighlight: '#f5f5f5',
 }
 
 const darkTheme: Theme = {
@@ -40,6 +42,8 @@ const darkTheme: Theme = {
   gradient: 'linear-gradient(90deg, #BA6268 0.55%, #A8BBCD 100%)',
   toggleBackground: 'rgb(102, 97, 113)',
   toggleColor: 'rgb(154, 106, 255)',
+  skeletonBase: '#ebebeb',
+  skeletonHighlight: '#f5f5f5',
 }
 
 export type Theme = typeof lightTheme

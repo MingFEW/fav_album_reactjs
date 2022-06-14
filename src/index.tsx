@@ -15,8 +15,10 @@ import { Provider } from 'react-redux'
 // Use consistent styling
 import 'sanitize.css/sanitize.css'
 import 'styles/css/tailwindcss.css'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 import { App } from 'app'
+import { ViewModeProvider } from 'contexts/ViewModeContext'
 
 import { HelmetProvider } from 'react-helmet-async'
 
@@ -28,6 +30,7 @@ import reportWebVitals from 'reportWebVitals'
 
 // Initialize languages
 import './locales/i18n'
+import { QueryParamsProvider } from 'contexts/QueryParamsContext'
 
 const store = configureAppStore()
 const MOUNT_NODE = document.getElementById('root') as HTMLElement
@@ -37,7 +40,11 @@ ReactDOM.render(
     <ThemeProvider>
       <HelmetProvider>
         <React.StrictMode>
-          <App />
+          <ViewModeProvider>
+            <QueryParamsProvider>
+              <App />
+            </QueryParamsProvider>
+          </ViewModeProvider>
         </React.StrictMode>
       </HelmetProvider>
     </ThemeProvider>
