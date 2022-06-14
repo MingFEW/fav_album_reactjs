@@ -75,4 +75,13 @@ export const GlobalStyle = createGlobalStyle`
   :where([aria-busy="true" i]) {
     cursor: unset;
   }
+
+  .__react_component_tooltip {
+    background-color: ${p => p.theme.strokeColor} !important;
+    color: ${p => p.theme.tooltipText} !important;
+
+    &:after{ 
+      border-top-color: ${p => p.theme.strokeColor} !important;
+    }
+  }
 `
