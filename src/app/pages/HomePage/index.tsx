@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useState } from 'react'
 import { Helmet } from 'react-helmet-async'
 
 import { NavBar } from 'app/components/NavBar'
@@ -8,8 +8,19 @@ import { CardItemGrid } from './components/CardItemGrid'
 import { CardItemList } from './components/CardItemList'
 import { BestAlbumList } from './components/BestAlbumList'
 import { Footer } from 'app/components/Footer'
+import { AddAlbum } from 'app/components/Modal'
 
 export const HomePage: React.FC = () => {
+  const [showModal, setShowModal] = useState<boolean>(false)
+
+  const openModal = useCallback(() => {
+    setShowModal(true)
+  }, [])
+
+  const closeModal = useCallback(() => {
+    setShowModal(false)
+  }, [])
+
   return (
     <>
       <Helmet>
@@ -38,6 +49,7 @@ export const HomePage: React.FC = () => {
         <BestAlbumList />
       </PageWrapper>
       <Footer />
+      <AddAlbum  isOpen={showModal} closeModal={closeModal} />
     </>
   )
 }
