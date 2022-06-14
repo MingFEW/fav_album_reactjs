@@ -3,20 +3,29 @@ import styled from 'styled-components/macro'
 
 import { Box } from 'app/components/Box'
 import { Text } from 'app/components/Text'
-import { HeartOutlineIcon, HeartSolidIcon } from 'app/components/Svg'
+import {
+  HeartOutlineIcon,
+  HeartSolidIcon,
+  RemoveIcon,
+} from 'app/components/Svg'
+import { useTranslation } from 'react-i18next'
+import { messages } from '../messages'
 
 export const CardItemGrid: React.FC = memo(() => {
+  const { t } = useTranslation()
+
   return (
     <Wrapper>
       <ThumbnailWrapper>
         <img
-          src="https://static.vecteezy.com/packs/media/components/global/search-explore-nav/img/vectors/term-bg-4-5af9c270adb750fdeb8f6a17fc9bfe54.jpg"
+          src="https://photo-resize-zmp3.zmdcdn.me/w320_r1x1_webp/cover/9/4/7/c/947c4e9b9220c3d158fdf9ec40437e91.jpg"
           alt="aaa"
         />
 
         <FavoriteWrap>
           {/* <HeartOutlineIcon /> */}
           {/* <HeartSolidIcon /> */}
+          <RemoveIcon />
         </FavoriteWrap>
       </ThumbnailWrapper>
 
@@ -27,8 +36,8 @@ export const CardItemGrid: React.FC = memo(() => {
         <Text className="mt-2" color="text1">
           John Deep, Albi
         </Text>
-        <Text className="mt-2 del-item" color="#999999">
-          Delete
+        <Text className="mt-2 del-item" color="red1">
+          {t(messages.delete())}
         </Text>
       </Box>
     </Wrapper>
@@ -38,10 +47,6 @@ export const CardItemGrid: React.FC = memo(() => {
 const Wrapper = styled.div`
   background: ${p => p.theme.card};
   box-shadow: 0px 1px 6px ${p => p.theme.shadow};
-
-  &:hover img {
-    transform: scale(1.1) translateZ(0);
-  }
 
   .del-item {
     cursor: pointer;
@@ -54,14 +59,12 @@ const Wrapper = styled.div`
 
 const ThumbnailWrapper = styled.div`
   position: relative;
-  height: 300px;
   overflow: hidden;
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s;
   }
 `
 
@@ -79,7 +82,8 @@ const FavoriteWrap = styled.div`
   align-items: center;
   justify-content: center;
 
+  transition: box-shadow 0.25s linear;
   &:hover {
-    transform: scale3d(1.03, 1.03, 1.03);
+    box-shadow: 1px 7px 15px rgb(0 0 0 / 30%);
   }
 `

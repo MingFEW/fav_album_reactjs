@@ -9,8 +9,8 @@ const lightTheme = {
   backgroundAlt: 'rgb(255, 255, 255)',
 
   text: '#000000',
-  text1: '#000000',
-  text2: '#ffffff',
+  text1: '#333333',
+  text2: '#333333',
 
   grey: '#373737',
   grey1: '#EFEFEF',
@@ -39,7 +39,7 @@ const darkTheme: Theme = {
   backgroundAlt: 'rgb(39, 38, 44)',
 
   text: '#ffffff',
-  text1: '#000000',
+  text1: '#333333',
   text2: '#ffffff',
 
   grey: '#EFEFEF',
