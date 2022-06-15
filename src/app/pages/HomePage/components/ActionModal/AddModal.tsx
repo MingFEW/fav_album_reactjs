@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import isEmpty from 'lodash/isEmpty'
 import { useTranslation } from 'react-i18next'
@@ -35,6 +35,10 @@ export const AddModal: React.FC<Props> = props => {
 
   const isDisableSubmit =
     isEmpty(uploadFiles) || !validateFormValues(formValues)
+
+  useEffect(() => {
+    if (!props.isOpen) setFormValues(INITIAL_FORM_VALUES)
+  }, [props.isOpen])
 
   const _setFormValues = useCallback(
     (field: string, value: string) => {
