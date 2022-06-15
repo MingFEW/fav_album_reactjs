@@ -30,10 +30,10 @@ export const ThemeSwitch: React.FC = memo(() => {
       onChange={() => toggleTheme(theme)}
       scale="md"
       startIcon={(isActive = false) => (
-        <SunIcon color={isActive ? 'toggleColor' : 'backgroundAlt'} />
+        <SunIcon color={isActive ? 'red1' : 'backgroundAlt'} />
       )}
       endIcon={(isActive = false) => (
-        <MoonIcon color={isActive ? 'toggleColor' : 'backgroundAlt'} />
+        <MoonIcon color={isActive ? 'white' : 'backgroundAlt'} />
       )}
     />
   )
