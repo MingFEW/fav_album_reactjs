@@ -17,7 +17,7 @@ interface ThemedIconLabel {
   hasDescription: boolean
 }
 
-const getThemeColor = ({ theme, variant = variants.INFO }: ThemedIconLabel) => {
+const getThemeColor = ({ variant = variants.INFO }: ThemedIconLabel) => {
   switch (variant) {
     case variants.DANGER:
       return 'red'
@@ -76,12 +76,12 @@ const StyledAlert = styled(Flex)`
 `
 
 const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
-  // const Icon = getIcon(variant)
+  const Icon = getIcon(variant)
 
   return (
     <StyledAlert>
       <IconLabel variant={variant} hasDescription={!!children}>
-        {/* <Icon color="currentColor" width="24px" /> */}
+        <Icon color="currentColor" width="24px" />
       </IconLabel>
       <Details hasHandler={!!onClick}>
         <Text bold>{title}</Text>
@@ -94,9 +94,6 @@ const Alert: React.FC<AlertProps> = ({ title, children, variant, onClick }) => {
       {onClick && (
         <CloseHandler onClick={onClick}>
           <RemoveIcon />
-          {/* <IconButton scale="sm" variant="text" onClick={onClick}>
-            <RemoveIcon width="24px" color="currentColor" />
-          </IconButton> */}
         </CloseHandler>
       )}
     </StyledAlert>

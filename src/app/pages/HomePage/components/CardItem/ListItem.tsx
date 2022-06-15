@@ -19,10 +19,11 @@ import { FavoriteWrap, Wrapper } from './styled'
 interface Props {
   data: Album
   onFavoriteToggle: () => void
+  onDeleteAlbum?: () => void
 }
 
 export const ListItem: React.FC<Props> = memo(
-  ({ data, onFavoriteToggle }) => {
+  ({ data, onFavoriteToggle, onDeleteAlbum }) => {
     const { t } = useTranslation()
     const { bestAlbums } = useBestAlbums()
     const { id, image, title, singer, description } = data || {}
@@ -47,8 +48,11 @@ export const ListItem: React.FC<Props> = memo(
             <Text className="mt-2" color="text1">
               {description}
             </Text>
-            {/* No Delete button if it's the best */}
-            <Text className="mt-2 del-item" color="red1">
+            <Text
+              className="mt-2 del-item"
+              color="red1"
+              onClick={onDeleteAlbum}
+            >
               {t(messages.delete())}
             </Text>
           </Box>

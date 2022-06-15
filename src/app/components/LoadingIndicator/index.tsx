@@ -5,7 +5,14 @@ interface Props extends SvgProps {}
 
 export const LoadingIndicator = (props: Props) => (
   <Svg viewBox="-24 -24 48 48" small={props.small}>
-    <Circle cx="0" cy="0" r="20" fill="none" strokeWidth="4"></Circle>
+    <Circle
+      cx="0"
+      cy="0"
+      r="20"
+      fill="none"
+      strokeWidth="4"
+      strokeColor={props.strokeColor}
+    ></Circle>
   </Svg>
 )
 
@@ -34,6 +41,7 @@ const dash = keyframes`
 
 interface SvgProps {
   small?: boolean
+  strokeColor?: string
 }
 
 const Svg = styled.svg<SvgProps>`
@@ -43,8 +51,8 @@ const Svg = styled.svg<SvgProps>`
   transform-origin: center;
 `
 
-const Circle = styled.circle`
+const Circle = styled.circle<SvgProps>`
   animation: ${dash} ${speed}s ease-in-out infinite;
-  stroke: ${p => p.theme.primary};
+  stroke: ${p => p.strokeColor || p.theme.primary};
   stroke-linecap: round;
 `

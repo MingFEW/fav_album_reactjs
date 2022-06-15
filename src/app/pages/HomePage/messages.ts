@@ -22,4 +22,7 @@ export const messages = {
   list: () => _t(translations.homePage.list),
   ascending: () => _t(translations.homePage.ascending),
   descending: () => _t(translations.homePage.descending),
+  ok: () => _t(translations.modal.ok),
+  cancel: () => _t(translations.modal.cancel),
+  deleteThisAlbum: () => _t(translations.modal.deleteThisAlbum),
 }

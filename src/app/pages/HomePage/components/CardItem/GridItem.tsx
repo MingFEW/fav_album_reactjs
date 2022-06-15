@@ -26,6 +26,7 @@ interface Props {
   isBestCard?: boolean
   onRemoveBestAlbum?: () => void
   onFavoriteToggle?: () => void
+  onDeleteAlbum?: () => void
 }
 
 export const GridItem: React.FC<Props> = memo(
@@ -33,7 +34,13 @@ export const GridItem: React.FC<Props> = memo(
     const { t } = useTranslation()
     const { bestAlbums } = useBestAlbums()
 
-    const { data, isBestCard, onFavoriteToggle, onRemoveBestAlbum } = props
+    const {
+      data,
+      isBestCard,
+      onFavoriteToggle,
+      onRemoveBestAlbum,
+      onDeleteAlbum,
+    } = props
     const { id, image, title, singer } = data || {}
     const isFavorited = bestAlbums.findIndex(al => al.id === id) > -1
 
@@ -66,7 +73,11 @@ export const GridItem: React.FC<Props> = memo(
           </Text>
           {/* No Delete button if it's the best */}
           {!isBestCard && (
-            <Text className="mt-2 del-item" color="red1">
+            <Text
+              className="mt-2 del-item"
+              color="red1"
+              onClick={onDeleteAlbum}
+            >
               {t(messages.delete())}
             </Text>
           )}

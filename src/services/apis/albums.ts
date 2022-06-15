@@ -18,7 +18,12 @@ function getAlbumsCount() {
   return Request.get('/albums/count')
 }
 
+function deleteAlbum(id?: string) {
+  return Request.delete(`/albums/${id}`)
+}
+
 export default {
   getAlbumList,
   getAlbumsCount,
+  deleteAlbum,
 }

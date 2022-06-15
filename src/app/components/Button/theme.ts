@@ -7,8 +7,7 @@ export const styleVariants = {
       transform: 'scale3d(1.03, 1.03, 1.03)',
     },
   },
-  //   [variants.SECONDARY]: {
-  //     color: colors.primary,
-  //     border: `1px solid ${colors.primary}`,
-  //   },
+  [variants.SECONDARY]: {
+    backgroundColor: '#9F9F9F',
+  },
 }

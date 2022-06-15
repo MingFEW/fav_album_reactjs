@@ -9,7 +9,7 @@ import { useQueryParams } from 'contexts/QueryParamsContext/hooks'
 import { useBestAlbums } from 'contexts/BestAlbumsContext/hooks'
 
 // State
-import { useAlbums } from 'state/albums/hooks'
+import { useAlbums, useDeleteAlbum } from 'state/albums/hooks'
 
 // Types
 import { Album } from 'types/AlbumsState'
@@ -23,14 +23,18 @@ import { ListItem } from './CardItem/ListItem'
 import { GridItemPlaceholder } from './CardItem/GridItemPlaceholder'
 import { ListItemPlaceholder } from './CardItem/ListItemPlaceholder'
 import { FilterBox } from './Filter/FilterBox'
+import { DeleteModal } from './ActionModal/DeleteModal'
 
 export const AlbumListView: React.FC = () => {
   const { params, setParams } = useQueryParams()
   const { viewMode } = useViewMode()
   const { isLoading, albums, albumsCount } = useAlbums(params)
+  const { isDeleting, deleteAlbum } = useDeleteAlbum()
   const { toggleBestAlbum } = useBestAlbums()
 
   const [page, setPage] = useState<number>(1)
+  const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false)
+  const [albumSelected, setAlbumSelected] = useState<Album | null>(null)
 
   const scrollToTop = useCallback(() => {
     window.scrollTo({
@@ -51,6 +55,11 @@ export const AlbumListView: React.FC = () => {
     [params, setParams, scrollToTop],
   )
 
+  const onDeleteAlbum = useCallback((album: Album) => {
+    setAlbumSelected(album)
+    setShowDeleteModal(true)
+  }, [])
+
   return (
     <>
       <FilterBox />
@@ -70,6 +79,7 @@ export const AlbumListView: React.FC = () => {
                 data={album}
                 key={index}
                 onFavoriteToggle={() => toggleBestAlbum(album)}
+                onDeleteAlbum={() => onDeleteAlbum(album)}
               />
             ))}
       </div>
@@ -84,6 +94,15 @@ export const AlbumListView: React.FC = () => {
           />
         </Flex>
       )}
+
+      <DeleteModal
+        isOpen={showDeleteModal}
+        isDeleting={isDeleting}
+        closeModal={() => setShowDeleteModal(false)}
+        onOK={() =>
+          deleteAlbum(albumSelected?.id, () => setShowDeleteModal(false))
+        }
+      />
     </>
   )
 }
@@ -93,13 +112,23 @@ const CardItemPlaceholder: React.FC = memo(() => {
   return viewMode === 'grid' ? <GridItemPlaceholder /> : <ListItemPlaceholder />
 })
 
-const CardItem: React.FC<{ data: Album; onFavoriteToggle: () => void }> = memo(
-  ({ data, onFavoriteToggle }) => {
-    const { viewMode } = useViewMode()
-    return viewMode === 'grid' ? (
-      <GridItem data={data} onFavoriteToggle={onFavoriteToggle} />
-    ) : (
-      <ListItem data={data} onFavoriteToggle={onFavoriteToggle} />
-    )
-  },
-)
+const CardItem: React.FC<{
+  data: Album
+  onFavoriteToggle: () => void
+  onDeleteAlbum: () => void
+}> = memo(({ data, onFavoriteToggle, onDeleteAlbum }) => {
+  const { viewMode } = useViewMode()
+  return viewMode === 'grid' ? (
+    <GridItem
+      data={data}
+      onFavoriteToggle={onFavoriteToggle}
+      onDeleteAlbum={onDeleteAlbum}
+    />
+  ) : (
+    <ListItem
+      data={data}
+      onFavoriteToggle={onFavoriteToggle}
+      onDeleteAlbum={onDeleteAlbum}
+    />
+  )
+})

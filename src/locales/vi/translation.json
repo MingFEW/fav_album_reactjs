@@ -20,6 +20,12 @@
     "notif": "Thông báo",
     "error": "Lỗi",
     "addedToBestAlbum": "Đã thêm vào album hay nhất",
-    "removedFromBestAlbum": "Đã xoá khỏi album hay nhất"
+    "removedFromBestAlbum": "Đã xoá khỏi album hay nhất",
+    "deleteAlbumSuccess": "Đã xoá album thành công"
+  },
+  "modal": {
+    "cancel": "Huỷ",
+    "ok": "Có",
+    "deleteThisAlbum": "Bạn muốn xoá album này?"
   }
 }
