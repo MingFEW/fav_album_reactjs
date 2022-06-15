@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { useTranslation } from 'react-i18next'
+import isEmpty from 'lodash/isEmpty'
 
 import { messages } from '../messages'
 import { media } from 'styles/media'
@@ -17,6 +18,8 @@ import { GridItem } from './CardItem/GridItem'
 export const BestAlbumList: React.FC = () => {
   const { t } = useTranslation()
   const { bestAlbums, toggleBestAlbum } = useBestAlbums()
+
+  if (isEmpty(bestAlbums)) return null
 
   return (
     <>
