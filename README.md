@@ -5,3 +5,12 @@
 ```shell
 yarn install && yarn start
 ```
+
+## Tech Stack 
+
+1. CRA 
+2. TailwindCss
+3. Custom Hook + Redux/Reduce 
+4. ContextProvider
+5. i18n 
+6. Backend NODEJS / Locale 
