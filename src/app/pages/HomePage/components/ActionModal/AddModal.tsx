@@ -105,13 +105,18 @@ export const AddModal: React.FC<Props> = props => {
           />
         </Box>
 
-        <Flex alignItems="center" justifyContent="space-between">
+        <Flex
+          className="flex-col md:flex-row w-full"
+          alignItems="center"
+          justifyContent="space-between"
+        >
           <Button
+            className="w-full mb-3 md:w-auto md:mb-0"
             disabled={isDisableSubmit}
             variant="primary"
             onClick={onSubmit}
           >
-            <Flex alignItems="center">
+            <Flex justifyContent="center" alignItems="center">
               {isCreating && <LoadingIndicator strokeColor="white" small />}
               <Text ml="8px" fontSize="16px" fontWeight={500}>
                 {t(messages.submit())}
@@ -119,6 +124,7 @@ export const AddModal: React.FC<Props> = props => {
             </Flex>
           </Button>
           <Button
+            className="w-full md:w-auto"
             variant="secondary"
             onClick={() => !isCreating && props.closeModal()}
           >

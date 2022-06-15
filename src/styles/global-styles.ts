@@ -30,7 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     left: 40px;
     right: 40px;
     bottom: 40px;
-    padding: 40px;
+    padding: 24px;
     background-color: ${p => p.theme.card};
     border: none;
     max-width: 640px;
@@ -42,8 +42,8 @@ export const GlobalStyle = createGlobalStyle`
 
   .close-modal {
     position: absolute;
-    top: -60px;
-    right: -60px;
+    top: -45px;
+    right: -45px;
     display: flex;
     align-items: center;
     justify-content: center;
