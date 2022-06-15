@@ -13,4 +13,6 @@ yarn install && yarn start
 3. Custom Hook + Redux/Reduce 
 4. ContextProvider
 5. i18n 
-6. Backend NODEJS / Locale 
+6. Husky
+7. Eslint
+8. Backend NODEJS / Locale 
