@@ -3,4 +3,5 @@ export type Params = {
   _start: number
   _sort?: 'id' | 'title' | 'published_at'
   _order: 'ASC' | 'DESC'
+  _locale: string
 }

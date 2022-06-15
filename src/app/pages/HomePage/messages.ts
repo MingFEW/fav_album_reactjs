@@ -25,4 +25,12 @@ export const messages = {
   ok: () => _t(translations.modal.ok),
   cancel: () => _t(translations.modal.cancel),
   deleteThisAlbum: () => _t(translations.modal.deleteThisAlbum),
+  addNewAlbum: () => _t(translations.notification.addNewAlbum),
+  submit: () => _t(translations.modal.submit),
+  addNewAlbumTitle: () => _t(translations.modal.addnewAlbumTitle),
+  title: () => _t(translations.form.title),
+  singer: () => _t(translations.form.singer),
+  description: () => _t(translations.form.description),
+  english: () => _t(translations.modal.english),
+  vietnamese: () => _t(translations.modal.vietnamese),
 }

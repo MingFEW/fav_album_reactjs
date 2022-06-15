@@ -13,7 +13,8 @@
     "grid": "Grid",
     "list": "List",
     "ascending": "Ascending",
-    "descending": "Descending"
+    "descending": "Descending",
+    "imageUpload": "Image Upload (1:1)"
   },
   "notification": {
     "success": "Success",
@@ -21,11 +22,22 @@
     "error": "Error",
     "addedToBestAlbum": "Added to best album",
     "removedFromBestAlbum": "Removed from best album",
-    "deleteAlbumSuccess": "Delete album successfully"
+    "deleteAlbumSuccess": "Delete album successfully",
+    "uploadFileSizes": "Upload files size should not be more than 2MB",
+    "addNewAlbum": "Successfully added new album"
   },
   "modal": {
     "cancel": "Cancel",
     "ok": "Ok",
-    "deleteThisAlbum": "Do you want to delete this album?"
+    "submit": "Submit",
+    "deleteThisAlbum": "Do you want to delete this album?",
+    "addnewAlbumTitle": "ADD NEW ALBUM",
+    "english": "English",
+    "vietnamese": "Vietnamese"
+  },
+  "form": {
+    "title": "Title",
+    "singer": "Singer",
+    "description": "Description..."
   }
 }

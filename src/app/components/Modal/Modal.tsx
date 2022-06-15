@@ -19,6 +19,7 @@ const Modal: FC<Props> = ({ isOpen, closeModal, children }) => {
       onRequestClose={closeModal}
       className="modal"
       overlayClassName="overlay"
+      shouldCloseOnOverlayClick={false}
     >
       <Box className="relative">
         <div className="close-modal" onClick={closeModal}>

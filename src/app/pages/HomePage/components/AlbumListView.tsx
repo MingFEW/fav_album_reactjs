@@ -55,10 +55,17 @@ export const AlbumListView: React.FC = () => {
     [params, setParams, scrollToTop],
   )
 
-  const onDeleteAlbum = useCallback((album: Album) => {
-    setAlbumSelected(album)
-    setShowDeleteModal(true)
+  const toggleDeleteModal = useCallback(() => {
+    setShowDeleteModal(prev => !prev)
   }, [])
+
+  const onDeleteAlbum = useCallback(
+    (album: Album) => {
+      setAlbumSelected(album)
+      toggleDeleteModal()
+    },
+    [toggleDeleteModal],
+  )
 
   return (
     <>
@@ -95,13 +102,12 @@ export const AlbumListView: React.FC = () => {
         </Flex>
       )}
 
+      {/* All modal here*/}
       <DeleteModal
         isOpen={showDeleteModal}
         isDeleting={isDeleting}
-        closeModal={() => setShowDeleteModal(false)}
-        onOK={() =>
-          deleteAlbum(albumSelected?.id, () => setShowDeleteModal(false))
-        }
+        closeModal={toggleDeleteModal}
+        onOK={() => deleteAlbum(albumSelected?.id, toggleDeleteModal)}
       />
     </>
   )

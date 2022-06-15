@@ -22,6 +22,16 @@ const StyledButton = styled.button<BaseButtonProps>`
   }
   color: ${p => p.theme.text};
 
+  ${p =>
+    p.disabled &&
+    `
+    opacity: 0.5;
+    cursor: not-allowed;
+    &:hover {
+      opacity: 0.5;
+    }
+  `}
+
   ${variant({
     variants: styleVariants,
   })}

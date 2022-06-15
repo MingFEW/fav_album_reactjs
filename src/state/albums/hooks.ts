@@ -8,7 +8,7 @@ import AlbumApis from 'services/apis/albums'
 
 import { useToast } from 'contexts/ToastsContext/hooks'
 
-import { Params, RootState } from 'types'
+import { FormValues, Params, RootState } from 'types'
 import { AlbumsState } from 'types/AlbumsState'
 import { fetchAlbums } from './actions'
 
@@ -77,4 +77,54 @@ export const useDeleteAlbum = (): {
   )
 
   return { isDeleting, deleteAlbum }
+}
+
+export const useCreateAlbum = (): {
+  isCreating: boolean
+  createAlbum: (formValues: FormValues, files: any[], cb: () => void) => void
+} => {
+  const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const { params } = useQueryParams()
+  const { toastSuccess, toastError } = useToast()
+
+  const [isCreating, setIsCreating] = useState<boolean>(false)
+
+  const createAlbum = useCallback(
+    async (formValues: FormValues, files: any[], cb: () => void) => {
+      setIsCreating(true)
+
+      try {
+        const postResult = await AlbumApis.createAlbum(formValues, 'en', {})
+
+        const formData = new FormData()
+        formData.append('files', files[0])
+        formData.append('ref', 'album')
+        formData.append('field', 'image')
+        formData.append('refId', postResult.id)
+
+        const imageResult = await AlbumApis.uploadImage(formData)
+
+        await AlbumApis.createAlbum(formValues, 'vi', {
+          localizations: [postResult.id],
+          image: imageResult[0]._id,
+        })
+
+        dispatch(fetchAlbums(params))
+        toastSuccess(
+          t(translations.notification.notif),
+          t(translations.notification.addNewAlbum),
+        )
+
+        cb && cb()
+      } catch (error: any) {
+        toastError(t(translations.notification.notif), error?.message)
+      } finally {
+        setIsCreating(false)
+      }
+    },
+    [dispatch, params, isCreating],
+  )
+
+  return { isCreating, createAlbum }
 }

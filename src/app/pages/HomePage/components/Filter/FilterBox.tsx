@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import styled from 'styled-components/macro'
 import { useTranslation } from 'react-i18next'
 
@@ -10,14 +10,23 @@ import { Box, Flex } from 'app/components/Box'
 import { SortOptions } from './SortOptions'
 import { ViewModeBox } from './ViewModeBox'
 import { OrderButton } from './OrderButton'
+import { AddModal } from '../ActionModal/AddModal'
 
 export const FilterBox: React.FC = memo(() => {
   const { t } = useTranslation()
 
+  const [showAddModal, setShowAddModal] = useState<boolean>(false)
+
+  const toggleAddModal = useCallback(() => {
+    setShowAddModal(prev => !prev)
+  }, [])
+
   return (
     <>
       <Wrapper>
-        <AddButton variant="primary">{t(messages.addNew())}</AddButton>
+        <AddButton variant="primary" onClick={toggleAddModal}>
+          {t(messages.addNew())}
+        </AddButton>
         <Flex className="flex-col md:flex-row" alignItems="center">
           <ViewModeBox />
           {/* Style for desktop */}
@@ -37,6 +46,8 @@ export const FilterBox: React.FC = memo(() => {
         </div>
         <OrderButton />
       </Box>
+
+      <AddModal isOpen={showAddModal} closeModal={toggleAddModal} />
     </>
   )
 })
