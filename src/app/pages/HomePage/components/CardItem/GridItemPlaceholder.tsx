@@ -6,7 +6,7 @@ import { Wrapper } from './styled'
 
 export const GridItemPlaceholder: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper className="grid-view-frame">
       <Box mt="-4px">
         <Skeleton borderRadius={0} width="100%" height={300} />
       </Box>

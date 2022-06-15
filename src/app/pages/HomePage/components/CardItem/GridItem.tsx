@@ -1,9 +1,7 @@
 import React, { memo } from 'react'
 import styled from 'styled-components/macro'
 import { useTranslation } from 'react-i18next'
-
 import { messages } from '../../messages'
-
 import { useBestAlbums } from 'contexts/BestAlbumsContext/hooks'
 
 // Types
@@ -45,7 +43,7 @@ export const GridItem: React.FC<Props> = memo(
     const isFavorited = bestAlbums.findIndex(al => al.id === id) > -1
 
     return (
-      <Wrapper>
+      <Wrapper className="grid-view-frame">
         <ThumbnailWrapper>
           <img src={getAssetPath(image.url)} alt={image.alternativeText} />
 
@@ -71,7 +69,7 @@ export const GridItem: React.FC<Props> = memo(
           <Text className="mt-2" color="text1">
             {singer}
           </Text>
-          {/* No Delete button if it's the best */}
+
           {!isBestCard && (
             <Text
               className="mt-2 del-item"

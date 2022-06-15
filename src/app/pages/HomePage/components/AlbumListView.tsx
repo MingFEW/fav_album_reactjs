@@ -1,7 +1,6 @@
 import React, { useCallback, memo, useState } from 'react'
 import isEmpty from 'lodash/isEmpty'
 import { useTranslation } from 'react-i18next'
-
 import { messages } from '../messages'
 
 // Context

@@ -118,7 +118,7 @@ export const AddModal: React.FC<Props> = props => {
           >
             <Flex justifyContent="center" alignItems="center">
               {isCreating && <LoadingIndicator strokeColor="white" small />}
-              <Text ml="8px" fontSize="16px" fontWeight={500}>
+              <Text fontSize="16px" fontWeight={500}>
                 {t(messages.submit())}
               </Text>
             </Flex>

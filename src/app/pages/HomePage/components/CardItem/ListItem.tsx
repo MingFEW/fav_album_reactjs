@@ -30,7 +30,7 @@ export const ListItem: React.FC<Props> = memo(
     const isFavorited = bestAlbums.findIndex(al => al.id === id) > -1
 
     return (
-      <Wrapper>
+      <Wrapper className="list-view-frame">
         <div className="p-4 flex flex-col sm:flex-row gap-6 items-start justify-start">
           <ThumbnailWrapper>
             <img src={getAssetPath(image.url)} alt={image.alternativeText} />

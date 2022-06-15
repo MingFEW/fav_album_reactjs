@@ -5,6 +5,8 @@ export function getAssetPath(url: string): string {
     return ''
   }
 
-  const assetUrl = `${process.env.REACT_APP_BASE_URL}`
+  const assetUrl = `${
+    process.env.REACT_APP_BASE_URL || 'http://strapi.everest.land'
+  }`
   return assetUrl + url
 }

@@ -3,6 +3,12 @@ import styled from 'styled-components/macro'
 export const Wrapper = styled.div`
   background: ${p => p.theme.card};
   box-shadow: 0px 1px 6px ${p => p.theme.shadow};
+  &.grid-view-frame {
+    min-height: 454px;
+  }
+  &.list-view-frame {
+    min-height: 180px;
+  }
 
   .del-item {
     cursor: pointer;

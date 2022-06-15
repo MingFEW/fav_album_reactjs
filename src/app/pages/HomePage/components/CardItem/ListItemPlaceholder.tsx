@@ -7,7 +7,7 @@ import { Wrapper } from './styled'
 
 export const ListItemPlaceholder: React.FC = () => {
   return (
-    <Wrapper>
+    <Wrapper className="list-view-frame">
       <div className="p-4 flex flex-col sm:flex-row gap-6 items-center justify-start">
         <ThumbnailWrapper>
           <Box mt="-4px">
