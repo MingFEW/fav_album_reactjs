@@ -14,7 +14,8 @@
     "list": "Danh sách",
     "ascending": "Tăng dần",
     "descending": "Giảm dần",
-    "imageUpload": "Thêm hình ảnh (1:1)"
+    "imageUpload": "Thêm hình ảnh (1:1)",
+    "emptyList": "Danh sách trống"
   },
   "notification": {
     "success": "Thành công",

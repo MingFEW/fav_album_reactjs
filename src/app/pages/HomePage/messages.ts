@@ -33,4 +33,5 @@ export const messages = {
   description: () => _t(translations.form.description),
   english: () => _t(translations.modal.english),
   vietnamese: () => _t(translations.modal.vietnamese),
+  emptyList: () => _t(translations.homePage.emptyList),
 }

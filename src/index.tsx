@@ -21,7 +21,6 @@ import { App } from 'app'
 
 // Context
 import { ViewModeProvider } from 'contexts/ViewModeContext'
-import { QueryParamsProvider } from 'contexts/QueryParamsContext'
 import { ToastsProvider } from 'contexts/ToastsContext/Provider'
 import { BestAlbumsProvider } from 'contexts/BestAlbumsContext'
 
@@ -46,11 +45,9 @@ ReactDOM.render(
         <React.StrictMode>
           <ToastsProvider>
             <ViewModeProvider>
-              <QueryParamsProvider>
-                <BestAlbumsProvider>
-                  <App />
-                </BestAlbumsProvider>
-              </QueryParamsProvider>
+              <BestAlbumsProvider>
+                <App />
+              </BestAlbumsProvider>
             </ViewModeProvider>
           </ToastsProvider>
         </React.StrictMode>

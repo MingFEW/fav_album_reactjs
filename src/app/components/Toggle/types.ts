@@ -27,9 +27,6 @@ export interface InputProps {
 }
 
 export interface StyleToggleProps {
-  $checked: boolean
-  $checkedColor: keyof Colors
-  $defaultColor: keyof Colors
   scale: Scales
 }
 

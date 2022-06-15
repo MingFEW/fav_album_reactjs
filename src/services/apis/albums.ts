@@ -15,8 +15,12 @@ function getAlbumList(params: Params) {
   })
 }
 
-function getAlbumsCount() {
-  return Request.get('/albums/count')
+function getAlbumsCount(params: Params) {
+  return Request.get('/albums/count', {
+    params: {
+      _locale: params._locale,
+    },
+  })
 }
 
 function deleteAlbum(id?: string) {

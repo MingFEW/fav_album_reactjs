@@ -14,7 +14,7 @@ export const SortOptions: React.FC = () => {
   const options = [
     { value: 'id', label: t(messages.sortById()) },
     { value: 'title', label: t(messages.sortByName()) },
-    { value: 'published_at', label: t(messages.sortByDate()) },
+    { value: 'updatedAt', label: t(messages.sortByDate()) },
   ]
 
   const onSelectChange = useCallback(

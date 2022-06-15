@@ -13,17 +13,16 @@ import {
 export const fetchAlbums = (params: Params) => async (dispatch: Dispatch) => {
   try {
     dispatch(loadAlbums())
-    setTimeout(async () => {
-      const data = await Promise.all([
-        AlbumApis.getAlbumsCount(),
-        AlbumApis.getAlbumList(params),
-      ])
 
-      if (!isEmpty(data)) {
-        dispatch(albumsCountLoaded(data[0]))
-        dispatch(albumsLoaded(data[1]))
-      }
-    }, 200)
+    const data = await Promise.all([
+      AlbumApis.getAlbumsCount(params),
+      AlbumApis.getAlbumList(params),
+    ])
+
+    if (!isEmpty(data)) {
+      dispatch(albumsCountLoaded(data[0]))
+      dispatch(albumsLoaded(data[1]))
+    }
   } catch (error) {
     dispatch(loadAlbumsError(error))
   }

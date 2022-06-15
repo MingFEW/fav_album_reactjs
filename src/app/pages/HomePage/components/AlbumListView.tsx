@@ -1,7 +1,8 @@
 import React, { useCallback, memo, useState } from 'react'
 import isEmpty from 'lodash/isEmpty'
+import { useTranslation } from 'react-i18next'
 
-import { PAGE_SIZE } from 'contants'
+import { messages } from '../messages'
 
 // Context
 import { useViewMode } from 'contexts/ViewModeContext/hooks'
@@ -24,15 +25,16 @@ import { GridItemPlaceholder } from './CardItem/GridItemPlaceholder'
 import { ListItemPlaceholder } from './CardItem/ListItemPlaceholder'
 import { FilterBox } from './Filter/FilterBox'
 import { DeleteModal } from './ActionModal/DeleteModal'
+import { Text } from 'app/components/Text'
 
 export const AlbumListView: React.FC = () => {
+  const { t } = useTranslation()
   const { params, setParams } = useQueryParams()
   const { viewMode } = useViewMode()
   const { isLoading, albums, albumsCount } = useAlbums(params)
   const { isDeleting, deleteAlbum } = useDeleteAlbum()
   const { toggleBestAlbum } = useBestAlbums()
 
-  const [page, setPage] = useState<number>(1)
   const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false)
   const [albumSelected, setAlbumSelected] = useState<Album | null>(null)
 
@@ -43,12 +45,12 @@ export const AlbumListView: React.FC = () => {
     })
   }, [])
 
+  const page = (params._start + params._limit) / params._limit
   const onPageChange = useCallback(
-    (page: number, pageSize: number) => {
-      setPage(page)
+    (page: number) => {
       setParams({
         ...params,
-        _start: page * pageSize - params._limit,
+        _start: page * params._limit - params._limit,
       })
       scrollToTop()
     },
@@ -78,7 +80,7 @@ export const AlbumListView: React.FC = () => {
         }
       >
         {isLoading
-          ? Array.from({ length: PAGE_SIZE }, (_, k: number) => (
+          ? Array.from({ length: params._limit }, (_, k: number) => (
               <CardItemPlaceholder key={k} />
             ))
           : albums.map((album: Album, index: number) => (
@@ -91,11 +93,24 @@ export const AlbumListView: React.FC = () => {
             ))}
       </div>
 
+      {!isLoading && isEmpty(albums) && (
+        <Flex
+          py="50px"
+          width="100%"
+          alignItems="center"
+          justifyContent="center"
+        >
+          <Text color="grey" fontSize="24px" fontStyle="italic">
+            {t(messages.emptyList())}
+          </Text>
+        </Flex>
+      )}
+
       {!isEmpty(albums) && (
         <Flex className="my-10" alignItems="center" justifyContent="center">
           <Pagination
             current={page}
-            pageSize={PAGE_SIZE}
+            pageSize={params._limit}
             total={albumsCount}
             onChange={onPageChange}
           />

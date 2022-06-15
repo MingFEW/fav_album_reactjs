@@ -25,8 +25,6 @@ export const ThemeSwitch: React.FC = memo(() => {
   return (
     <Toggle
       checked={theme === 'dark' || theme === 'system'}
-      defaultColor="textDisabled"
-      checkedColor="textDisabled"
       onChange={() => toggleTheme(theme)}
       scale="md"
       startIcon={(isActive = false) => (

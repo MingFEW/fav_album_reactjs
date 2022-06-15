@@ -14,7 +14,8 @@
     "list": "List",
     "ascending": "Ascending",
     "descending": "Descending",
-    "imageUpload": "Image Upload (1:1)"
+    "imageUpload": "Image Upload (1:1)",
+    "emptyList": "Empty List"
   },
   "notification": {
     "success": "Success",
