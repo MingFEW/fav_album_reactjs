@@ -21,9 +21,9 @@
     "success": "Success",
     "notif": "Notification",
     "error": "Error",
-    "addedToBestAlbum": "Added to best album",
-    "removedFromBestAlbum": "Removed from best album",
-    "deleteAlbumSuccess": "Delete album successfully",
+    "addedToBestAlbum": "Added to the best",
+    "removedFromBestAlbum": "Removed from the best",
+    "deleteAlbumSuccess": "Deleted album successfully",
     "uploadFileSizes": "Upload files size should not be more than 2MB",
     "addNewAlbum": "Successfully added new album"
   },

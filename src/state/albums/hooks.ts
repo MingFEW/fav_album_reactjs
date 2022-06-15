@@ -3,11 +3,8 @@ import { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useInjectReducer } from 'redux-injectors'
 import { useTranslation } from 'react-i18next'
-
 import AlbumApis from 'services/apis/albums'
-
 import { useToast } from 'contexts/ToastsContext/hooks'
-
 import { FormValues, Params, RootState } from 'types'
 import { AlbumsState } from 'types/AlbumsState'
 import { fetchAlbums } from './actions'
