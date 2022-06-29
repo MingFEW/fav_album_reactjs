@@ -35,6 +35,7 @@ const Wrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   min-height: 320px;
+  color: ${p => p.theme.text};
 `
 
 const Title = styled.div`
