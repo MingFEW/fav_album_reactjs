@@ -1,0 +1,7 @@
+{
+    "baseUrl": "http://localhost:3000",
+    "video": false,
+    "env": {
+        "copyright": "© 2022 Ming Wizardev."
+    }
+}

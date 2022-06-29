@@ -21,8 +21,10 @@ export const HomePage: React.FC = () => {
       </Helmet>
       <NavBar />
       <PageWrapper>
-        <AlbumListView />
-        <BestAlbumList />
+        <div className="page-content home-page">
+          <AlbumListView />
+          <BestAlbumList />
+        </div>
       </PageWrapper>
       <Footer />
     </>

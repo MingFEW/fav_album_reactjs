@@ -24,7 +24,11 @@ export const FilterBox: React.FC = memo(() => {
   return (
     <>
       <Wrapper>
-        <AddButton variant="primary" onClick={toggleAddModal}>
+        <AddButton
+          className="add-new-btn"
+          variant="primary"
+          onClick={toggleAddModal}
+        >
           {t(messages.addNew())}
         </AddButton>
         <Flex className="flex-col md:flex-row" alignItems="center">
